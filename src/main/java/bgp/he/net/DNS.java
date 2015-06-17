@@ -78,6 +78,7 @@ public class DNS implements PageProcessor {
         String[] company = new String[]{"http://bgp.he.net/search?search[search]=Google+Inc",
                 "http://bgp.he.net/search?search[search]=Twitter+Inc",
                 "http://bgp.he.net/search?search[search]=facebook",
+                "http://bgp.he.net/search?search[search]=avast",
                 "http://bgp.he.net/dns/pornhub.com#_ipinfo",
                 "http://bgp.he.net/dns/91porn.com#_ipinfo"
         };
