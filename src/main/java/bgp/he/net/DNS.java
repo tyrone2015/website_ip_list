@@ -32,7 +32,7 @@ public class DNS implements PageProcessor {
 
         if (page.getUrl().toString().contains("search")) {
             for (String s : page.getHtml().xpath("//table//a/text()").all()) {
-                if (!s.contains("AS")) {
+                if (!s.contains("AS")&&!s.contains(":")) {
                     logger.info(s);
                     write(s);
                 }
@@ -42,8 +42,8 @@ public class DNS implements PageProcessor {
 
         if (page.getUrl().toString().contains("_ipinfo")) {
             for (String s : page.getHtml().xpath("//*[@id='ipinfo']/a/text()").all()) {
-                if (s.contains("/")) {
-                    logger.error(s);
+                if (s.contains("/")&&!s.contains(":")) {
+                    logger.info(s);
                     write(s);
                 }
             }
@@ -78,7 +78,8 @@ public class DNS implements PageProcessor {
         String[] company = new String[]{"http://bgp.he.net/search?search[search]=Google+Inc",
                 "http://bgp.he.net/search?search[search]=Twitter+Inc",
                 "http://bgp.he.net/search?search[search]=facebook",
-
+                "http://bgp.he.net/dns/pornhub.com#_ipinfo",
+                "http://bgp.he.net/dns/91porn.com#_ipinfo"
         };
         Spider.create(new DNS())
                 .addUrl(company)
